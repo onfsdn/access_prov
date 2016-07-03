@@ -28,7 +28,7 @@ def evictUser(username, evict_time):
 	data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr'],'policy_type':user_dict['user_group']}
 	server_config = dbaccess.getServerconfig()
 	sdnController = server_config['sdnController_ip']
-	url = 'http://'+sdnController+'5010/evict_user'
+	url = 'http://'+sdnController+'5010/evictuser'
 	
 	print "\n!! User Eviction policy being triggered !!"
 	print "-- USER : "+str(username)

@@ -74,7 +74,7 @@ def serverAdd():
 
         server_config = dbaccess.getServerconfig()
         sdnController = server_config['sdnController_ip']
-        url = 'http://'+sdnController+':5010/server_config'
+        url = 'http://'+sdnController+':5010/serverconfig'
         del(server_config['sdnController_ip'])
 
         sendConfig(server_config,url)
@@ -125,7 +125,7 @@ def userDelete():
         
         server_config = dbaccess.getServerconfig()
         sdnController = server_config['sdnController_ip']
-        url = 'http://'+sdnController+':5010/evict_user'
+        url = 'http://'+sdnController+':5010/evictuser'
         sendConfig(data,url)
 
         items = dbaccess.getAllUsers()
@@ -168,7 +168,7 @@ def userLogin():
 
             server_config = dbaccess.getServerconfig()
             sdnController = server_config['sdnController_ip']
-            url = 'http://'+sdnController+':5010/authenticated_user'
+            url = 'http://'+sdnController+':5010/authenticateduser'
 
             sendConfig(data,url)
             success_string = 'Your login is successful from your ' + device + " device with IP " + ip_addr + "."
