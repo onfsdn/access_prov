@@ -94,24 +94,39 @@ class Begin(app_manager.RyuApp):
         return abs(hash(string)) % (10 ** 6)
     
     def json_server_parse(self,obj):
-        server_key=[['external_ip','external_mac','external_port'],['internal_ip','internal_mac','internal_port']['authServer_ip','authServer_mac','authServer_port']]
+        server_key=[["external_ip","external_mac","external_port"],["internal_ip","internal_mac","internal_port"],["authServer_ip","authServer_mac","authServer_port"]]
+        LOG.info("server_key"+str(server_key)) 
         for sv_type in serv_type:
+            LOG.info("json_server_parse"+str(sv_type)) 
             for x in server_key:
+                LOG.info("json_server_parse"+str(x))
                 ip=obj[x[0]]
                 mac=obj[x[1]]
                 port=obj[x[2]]
                 self.create_server(ip=ip,mac=mac,port=port,server_type=sv_type)
+        LOG.info("json_server_parse"+str(obj))        
         return
            
     def json_user_parse(self,obj):
         ip=obj['ip_address']
         policy_type=obj['policy_type']
+        LOG.info("json_user_parse 1111 :"+ip+policy_type) 
         self.create_client(ip,policy_type)
+        LOG.info("json_user_parse:"+ip+policy_type) 
+        return
+    
+    def json_evict_parse(self,obj):
+        ip=obj['ip_address']
+        policy_type=obj['policy_type']
+        self.create_client(ip,policy_type)
+        LOG.info("json_user_parse:"+ip+policy_type) 
         return
          
     def create_server(self,ip=None,mac=None,port=None,server_type=None):
         new_server={'ip':ip,'mac':mac,'port':port,'server_type':server_type}
         server_ip_list.append(new_server)
+        LOG.info("create_server:"+ip+mac+port+server_type) 
+        
     
     def create_client(self,ip=None,mac=None,port=None,policy_type=None):
         new_client={'ip':ip,'mac':mac,'port':port,'policy_type':policy_type}  
@@ -121,6 +136,7 @@ class Begin(app_manager.RyuApp):
                     client_list.append(new_client)
                 else:
                     client_list[client_list.index(cl_list)]['policy_type']=policy_type
+        LOG.info("create_client:"+ip+mac+str(port)+str(policy_type))
                     
     def get_cokkie_hash(self,src_mac,dst_mac):
         for mac_to_cokkie in mac_to_cokkie_list:
@@ -458,6 +474,3 @@ class Begin(app_manager.RyuApp):
         LOG.info("_del_redirect_flow_byrest_calling_rest_start")
         self.request_post(_ipaddr+str(_ipaddr_port)+'/stats/flowentry/delete', del_dist)
         LOG.info("_del_redirect_flow_byrest_calling_rest_end")        
-    
-    
-           
