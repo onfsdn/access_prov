@@ -49,8 +49,8 @@ _ipaddr_port=port_no
 ./bin/ryu-manager --app-lists ryu/app/dynamic_access_main.py ryu/app/ofctl_rest.py
 
 #Running Authentication Server
--Clone the repo.
--Run createDB.py inside db directory (python db/createDB.py)
--Run app.py (sudo python app.py)
--http://<host_address>/admin_login takes you admin dashboard to add users and server details.
--http://<host_address> gives the homepage to user to login using his credentials.
+- Clone the repo.
+- Run createDB.py inside db directory (python db/createDB.py)
+- Run app.py (sudo python app.py)
+- http://<host_address>/admin_login takes you admin dashboard to add users and server details.
+- http://<host_address> gives the homepage to user to login using his credentials.
