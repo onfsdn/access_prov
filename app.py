@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 # Global variable
 success_string=""
+sdnController=""
 
 # Redirects to user login page
 @app.route('/')
@@ -49,6 +50,7 @@ def userAdd():
 @app.route('/server_add', methods=['GET','POST'])
 def serverAdd():
     error =None
+    global sdnController
 
     if request.method == 'GET':
         items = dbaccess.getServertable()
@@ -71,9 +73,9 @@ def serverAdd():
 
 
         server_config = dbaccess.getServerconfig()
+        sdnController = server_config['sdnController_ip']
+        url = 'http://'+sdnController+':5010/server_config'
         del(server_config['sdnController_ip'])
-
-        url = 'http://127.0.0.1:5010/server_config'
 
         sendConfig(server_config,url)
 
@@ -120,7 +122,10 @@ def userDelete():
         dbaccess.deleteUser(username)
         success = "User successfully deleted !!"
         data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr'],'policy_type':user_dict['user_group']}
-        url = 'http://127.0.0.1:5010/evict_user'
+        
+        server_config = dbaccess.getServerconfig()
+        sdnController = server_config['sdnController_ip']
+        url = 'http://'+sdnController+':5010/evict_user'
         sendConfig(data,url)
 
         items = dbaccess.getAllUsers()
@@ -161,7 +166,10 @@ def userLogin():
             
             data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr'],'policy_type':user_dict['user_group']}
 
-            url = 'http://127.0.0.1:5010/authenticated_user'
+            server_config = dbaccess.getServerconfig()
+            sdnController = server_config['sdnController_ip']
+            url = 'http://'+sdnController+':5010/authenticated_user'
+
             sendConfig(data,url)
             success_string = 'Your login is successful from your ' + device + " device with IP " + ip_addr + "."
 
@@ -173,6 +181,7 @@ def userLogin():
 def sendConfig(data,url):
     data_json = json.dumps(data)
     print 'JSON being sent - ', data_json
+    print 'URL - ', url
     headers = {'Content-type': 'application/json'}
     # response = requests.post(url, data=data_json, headers=headers)
     # pprint.pprint(response.json())

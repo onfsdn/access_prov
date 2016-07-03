@@ -132,6 +132,10 @@ def getUserDetails(name):
 # Returns true if user is already logged in
 def isOnline(name):
 	user_details = getUserDetails(name)
+
+	if not user_details:
+		return False
+
 	if user_details['status'] == 'Online':
 		return True
 	else:
@@ -150,8 +154,3 @@ def isValid(name,passwd):
 			return False
 	conn.close()
 
-# createDB()
-# insert_usertable()
-# select_db()
-# check_is_valid()
-# getUserDetails('madhu')

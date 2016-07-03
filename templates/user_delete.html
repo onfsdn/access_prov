@@ -1,23 +1,24 @@
 <html>
   <head>
-    <title>Flask Intro - login page</title>
+    <title>Delete User</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" media="screen">
+    <link href="static/css/style.css" rel="stylesheet" media="screen">
   </head>
   <body>
    <body style="background:#f8f8f8; margin:0; padding:0;">
       <nav>
-        <h1 class="logo"><img src="res/logo_ad.png" width="250" height=""></h1>
+        <h1 class="logo"><img src="static/res/logo_ad.png" width="250" height=""></h1>
       </nav>
         
-        <div class="main">
+        <div class="main" style="padding:10px; width:98% !important;">
       <h3>Enter the username to delete</h3>
       <br>
       <form action="" method="post">
         <input type="text" placeholder="Username" name="username" value="{{
           request.form.username }}">
-        <input class="btn btn-default" type="submit" name="submit" value="Delete">
+        <input class="login_button" type="submit" name="submit" value="Delete">
       </form>
+      <button class="add_button" onClick="window.location='/user_add'">Admin Dashboard</button>
       <table border="0"  cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #d8d8d8; border-right:1px solid #d8d8d8; border-left:1px solid #d8d8d8;">
          <thead>
             <tr>
@@ -36,6 +37,7 @@
             <tr>
             {% for i in item %}
                   <td class="add_user_addedlist">{{ i }}</td>
+
             {% endfor %}
           </tr>
             {% endfor %}

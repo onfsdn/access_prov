@@ -26,7 +26,10 @@ def evictUser(username, evict_time):
 	dbaccess.deleteUser(username)
 
 	data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr']}
-	url = 'http://127.0.0.1:5010/evict_user'
+	server_config = dbaccess.getServerconfig()
+	sdnController = server_config['sdnController_ip']
+	url = 'http://'+sdnController+'5010/evict_user'
+
 	sendConfig(data,url)
 
 	print "User deleted : username -", str(username)
@@ -36,6 +39,7 @@ def evictUser(username, evict_time):
 def sendConfig(data,url):
     data_json = json.dumps(data)
     print 'JSON being sent - ', data_json
+    print 'URL - ', url
     headers = {'Content-type': 'application/json'}
     # response = requests.post(url, data=data_json, headers=headers)
     # pprint.pprint(response.json())

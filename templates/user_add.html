@@ -13,18 +13,18 @@
             <span class="left_section">
                 <h3>Add User Details</h3>
       <br>
-      <form action="" method="post" style="text-align:right;">
+      <form action="" method="post" style="text-align:left;">
           <ul>
-              <li style="width: 130px;">Username</li>
-              <li><input type="text" placeholder="Username" name="username" value="{{request.form.username }}"></li>
+              <li class="mtitles">Username</li>
+              <li style="width:310px;"><input type="text" placeholder="Username" name="username" value="{{request.form.username }}"></li>
           </ul>
           <ul>
-              <li style="width: 130px;">Password</li>
-              <li><input type="password" placeholder="Password" name="password" value="{{request.form.password }}"></li>
+              <li  class="mtitles">Password</li>
+              <li style="width:310px;"><input type="password" placeholder="Password" name="password" value="{{request.form.password }}"></li>
           </ul>
           <ul>
-              <li style="width: 130px;">User Group</li>
-              <li>
+              <li  class="mtitles">User Group</li>
+              <li style="width:310px;">
                 <select name="user_group">
                   <option>Employee</option>
                   <option>Guest</option>
@@ -33,8 +33,8 @@
                 <!--<input type="text" placeholder="Guest/Employee"  value="{{request.form.user_group }}"></li-->
           </ul>
           <ul>
-              <li style="width: 130px;">Evict Time</li>
-              <li><input type="text" placeholder="in secs" name="evict_time" value="{{request.form.evict_time }}"></li>
+              <li class="mtitles">Evict Time</li>
+              <li style="width:310px;"><input type="text" placeholder="in secs" name="evict_time" value="{{request.form.evict_time }}"></li>
           </ul>
         
         
@@ -50,8 +50,8 @@
     </h3>
       <!--p>Click <a href="/server_add">here</a> to add server details.</p>
       <p>Click <a href="/user_delete">here</a> to manage users.</p-->
-            <h5><button onClick="window.location='/server_add'">Add server details</button></h5>
-            <h5><button onClick="window.location='/user_delete'">Manage Users</button></h5>
+            <h5><button onClick="window.location='/server_add'"  style="position:relative;left:-18px;">Add server details</button></h5>
+            <h5><button onClick="window.location='/user_delete'"  style="position:relative;left:-18px;">Manage Users</button></h5>
             </span>
             <span class="right_section">
                 <table border="0"  cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #d8d8d8;">

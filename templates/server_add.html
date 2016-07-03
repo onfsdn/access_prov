@@ -2,80 +2,97 @@
   <head>
     <title>Add Server</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/css/style.css" rel="stylesheet" media="screen">
   </head>
-  <body>
-    <div class="container">
-      <h1>Add Server Policy</h1>
+  <body style="background:#f8f8f8; margin:0; padding:0;">
+      <nav>
+        <h1 class="logo"><img src="static/res/logo_ad.png" width="250" height=""></h1>
+      </nav>
+        
+        <div class="main">
+		 <span class="left_section">
+      <h3>Add Server Policy</h3>
       <br>
-      <form action="" method="post">
-        <h4>Internal Server</h5>
-        <input type="text" placeholder="Internal IP" name="internal" value="{{
-          request.form.internal }}">
-        <h4>External Server</h5>
-         <input type="text" placeholder="External IP" name="external" value="{{
-          request.form.external }}">
-          <h4>Authentication Server</h5>
-        <input type="text" placeholder="Authentication IP" name="authentication" value="{{
-          request.form.authentication }}">
+      <form action="" method="post" style="text-align:left;">
+	  
+		<ul>
+            <li class="mtitles">Internal Server</li>
+            <li style="width:310px;"><input type="text" placeholder="Internal IP" name="internal" value="{{request.form.internal }}"></li>
+        </ul>
+    <ul>
+            <li class="mtitles">Internal Server MAC</li>
+            <li style="width:310px;"><input type="text" placeholder="Internal MAC" name="internal_mac" value="{{request.form.internal_mac }}"></li>
+        </ul>
+    <ul>
+            <li class="mtitles">Internal Server Port</li>
+            <li style="width:310px;"><input type="text" placeholder="Internal Port" name="internal_port" value="{{request.form.internal_port }}"></li>
+        </ul>
+		<ul>
+            <li class="mtitles">External Server</li>
+            <li style="width:310px;"><input type="text" placeholder="External IP" name="external" value="{{request.form.external }}"></li>
+        </ul>
+    <ul>
+            <li class="mtitles">External Server MAC</li>
+            <li style="width:310px;"><input type="text" placeholder="External MAC" name="external_mac" value="{{request.form.external_mac }}"></li>
+        </ul>
+    <ul>
+            <li class="mtitles">External Server Port</li>
+            <li style="width:310px;"><input type="text" placeholder="External Port" name="external_port" value="{{request.form.external_mac }}"></li>
+        </ul>
+		<ul>
+            <li class="mtitles">Authentication Server</li>
+            <li style="width:310px;"><input type="text" placeholder="Authentication IP" name="authentication" value="{{request.form.authentication }}"></li>
+        </ul>	
+		<ul>
+            <li class="mtitles">Authentication Server MAC</li>
+            <li style="width:310px;"><input type="text" placeholder="Authentication MAC" name="authentication_mac" value="{{request.form.authentication_mac }}"></li>
+        </ul>
+		<ul>
+            <li class="mtitles">Authentication Server Port</li>
+            <li style="width:310px;"><input type="text" placeholder="Authentication Port" name="authentication_port" value="{{request.form.authentication_port }}"></li>
+        </ul>
+		<ul>
+            <li class="mtitles">SDN Controller</li>
+            <li style="width:310px;"><input type="text" placeholder="SDN Controller" name="sdnController" value="{{request.form.sdnController }}"></li>
+        </ul>
 
-        <h4>Internal Server MAC</h5>
-        <input type="text" placeholder="Internal MAC" name="internal_mac" value="{{
-          request.form.internal_mac }}">
-        <h4>External Server MAC</h5>
-         <input type="text" placeholder="External MAC" name="external_mac" value="{{
-          request.form.external_mac }}">
-          <h4>Authentication Server MAC</h5>
-        <input type="text" placeholder="Authentication MAC" name="authentication_mac" value="{{
-          request.form.authentication_mac }}">
-
-          <h4>Internal Server Port</h5>
-        <input type="text" placeholder="Internal Port" name="internal_port" value="{{
-          request.form.internal_port }}">
-        <h4>External Server Port</h5>
-         <input type="text" placeholder="External Port" name="external_port" value="{{
-          request.form.external_mac }}">
-          <h4>Authentication Server Port</h5>
-        <input type="text" placeholder="Authentication Port" name="authentication_port" value="{{
-          request.form.authentication_port }}">
-
-          <h4>SDN Controller</h5>
-        <input type="text" placeholder="SDN Controller" name="sdnController" value="{{
-          request.form.sdnController }}">
-          
+   
         <br><br>
         <input class="btn btn-default" type="submit" value="Store">
       </form>
-      <h5><button onClick="window.location='/user_add'">Admin Dashboard</button></h5>
+      <h5 ><button onClick="window.location='/user_add'" style="position:relative;left:-18px;">Admin Dashboard</button></h5>
       {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
       {% endif %}
+	  </span>
 
-      <table border="1" style="width:100%">
+      <span class="right_section">
+        <table border="0"  cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #d8d8d8;">
          <thead>
             <tr>
-               <th>External Server</th>
-               <th>Internal Server</th>
-               <th>Authentication Server</th>
-               <th>Internal Server MAC</th>
-               <th>External Server MAC</th>
-               <th>Authentication Server MAC</th>
-               <th>Internal Server Port</th>
-               <th>External Server Port</th>
-               <th>Authentication Server Port</th>
-               <th>SDN Controller</th>
+               <th class="add_user_list">External Server</th>
+               <th class="add_user_list">Internal Server</th>
+               <th class="add_user_list">Authentication Server</th>
+               <th class="add_user_list">Internal Server MAC</th>
+               <th class="add_user_list">External Server MAC</th>
+               <th class="add_user_list">Authentication Server MAC</th>
+               <th class="add_user_list">Internal Server Port</th>
+               <th class="add_user_list">External Server Port</th>
+               <th class="add_user_list">Authentication Server Port</th>
+               <th class="add_user_list">SDN Controller</th>
             </tr>
          </thead>
       <tbody>
             {% for item in items %}
             <tr>
             {% for i in item %}
-                  <td>{{ i }}</td>
+                  <td class="add_user_addedlist">{{ i }}</td>
             {% endfor %}
           </tr>
             {% endfor %}
          </tbody>
       </table>
+	  </span>
     </div>
   </body>
 </html>
