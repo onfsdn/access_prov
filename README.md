@@ -7,13 +7,13 @@ Dynamic Access Provisioning
 
 vi /usr/local/etc/ryu/ryu.conf
 
-wsapi_host=<ip_addr>
-wsapi_port=<port_no>
+wsapi_host=ip_addr
+wsapi_port=port_no
 
 vi ryu/app/dynamic_access.py
 
-_ipaddr='http://<ip_addr>:'
-_ipaddr_port=<port_no>
+_ipaddr='http://ip_addr:'
+_ipaddr_port=port_no
 
 
 
