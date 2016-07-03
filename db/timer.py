@@ -25,14 +25,19 @@ def evictUser(username, evict_time):
 	data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr']}
 	dbaccess.deleteUser(username)
 
-	data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr']}
+	data = {'user_name':user_dict['name'], 'ip_address':user_dict['ip_addr'],'policy_type':user_dict['user_group']}
 	server_config = dbaccess.getServerconfig()
 	sdnController = server_config['sdnController_ip']
 	url = 'http://'+sdnController+'5010/evict_user'
+	
+	print "\n!! User Eviction policy being triggered !!"
+	print "-- USER : "+str(username)
+	print "-- Elapsed "+str(evict_time)+" seconds. --"
+	print "-- User "+str(username)+" being deleted. --"
 
 	sendConfig(data,url)
 
-	print "User deleted : username -", str(username)
+	print "!! USER DELETED : username -" + str(username) + " !!\n"
 
  
 # Sends configuration data to controller
