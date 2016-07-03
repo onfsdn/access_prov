@@ -251,7 +251,7 @@ class Begin(app_manager.RyuApp):
             else:
                 self.create_client(ip=src_ip, mac=src_mac, port=in_port)
                 aa_server=self.get_specific_server(2) 
-                if aa_server not in None:
+                if aa_server is not None:
                     ipv4_aa_dst= aa_server['ip']
                     eth_aa_dst= aa_server['mac']
                     out_aa_port = aa_server['port']

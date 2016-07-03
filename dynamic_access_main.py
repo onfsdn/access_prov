@@ -107,6 +107,8 @@ class DynamicController(ControllerBase):
         return Response(content_type='application/json', body=body)
     
     #url1 = http:<ip-aadr>:<tcp_port>/dynamicaccess/serverconfig'
+    #
+    #
     @route(app_name, url1, methods=['POST'])
     def serverconfig(self, req, **kwargs):
         new_entry = eval(req.body)
