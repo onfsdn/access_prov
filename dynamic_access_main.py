@@ -9,6 +9,9 @@ from ryu.controller.handler import set_ev_cls
 from ryu.app.wsgi import ControllerBase, WSGIApplication, route
 
 #configure port and ip in sudo /usr/local/etc/ryu/ryu.conf
+#uncomment wsapi_host=ip_addr,wsapi_port=port_no
+#configure port and ip in sudo .ryu/app/dynamic_access.py
+#_ipaddr='http://ip_addr:' ,_ipaddr_port=port_no
 
 app_name='dynamicaccess'
 LOG = logging.getLogger('DynamicAccessRest')
@@ -21,7 +24,7 @@ url1 = '/'+app_name+'/serverconfig'
 url2 = '/'+app_name+'/authenticateduser'
 url3 = '/'+app_name+'/evictuser'
 
-_sccess_status ={'status':200}
+_sccess_status ={'status':'200'}
 _failure_status={'status':500}
 
 dynamic_switch = 'dynamic_switch_api_app'
@@ -111,10 +114,13 @@ class DynamicController(ControllerBase):
     #
     @route(app_name, url1, methods=['POST'])
     def serverconfig(self, req, **kwargs):
+        simple_switch = self.simpl_switch_spp
+        LOG.info("connection request"+str(req))
         new_entry = eval(req.body)
         LOG.info("connection request for %s ",url1 )
         try:
-            self.json_server_parse(new_entry)
+            LOG.info("connection request for"+str(new_entry) )
+            simple_switch.json_server_parse(new_entry)
             body = json.dumps(_sccess_status)
             return Response(content_type='application/json', body=body)
         except Exception as e:
@@ -127,6 +133,7 @@ class DynamicController(ControllerBase):
         new_entry = eval(req.body)
         LOG.info("connection request for %s ",url2 )
         try:
+            simple_switch.json_user_parse(new_entry)
             body = json.dumps(_sccess_status)
             return Response(content_type='application/json', body=body)
         except Exception as e:
@@ -139,9 +146,9 @@ class DynamicController(ControllerBase):
         new_entry = eval(req.body)
         LOG.info("connection request for %s ",url3 )
         try:
+            simple_switch.json_evict_parse(new_entry)
             body = json.dumps(_sccess_status)
             return Response(content_type='application/json', body=body)
         except Exception as e:
             return Response(_failure_status)    
-    
     
