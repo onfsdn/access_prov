@@ -1,10 +1,11 @@
 body
 {
-    background:url(/static/res/background.jpg) no-repeat 100% 100%;
+    background:#0178D6 url(/static/res/background.jpg) no-repeat center right;
     font-family: arial, verdana;
-    font-size: 14pt;
+    font-size: 12pt;
     color: #333333;
     height: 100%;
+    background-size:90%;
     
 }
 
@@ -15,9 +16,9 @@ h5
 }
 .container
 {
-    background: rgba(0,120,215,0.3);
-    width: 40%;
-    min-width: 500px;
+    /*background: rgba(0,120,215,0.3);*/
+    width: 60%;
+    min-width: 800px;
     height: 300px;
     position: relative;
     top: 30%;
@@ -25,22 +26,22 @@ h5
 }
 input[type=text]
 {
-    width: 300px;
+    width: 250px;
     height: 45px;
     border: 1px solid #cccccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 12pt;
     color: #333;
     padding-left: 10px;
 }
 
 input[type=password]
 {
-    width: 300px;
+    width: 250px;
     height: 45px;
     border: 1px solid #cccccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 12pt;
     color: #333;
     padding-left: 10px;
     
@@ -51,9 +52,9 @@ input[type=submit]
     background: #ffba00;
     border:none;
     border-radius: 5px;
-    width: 300px;
+    width: 250px;
     height: 45px;
-    margin: 5px 13px 0 43px ;
+    margin: 5px 13px 0 16px ;
     text-align: center;
     text-transform: uppercase;
     font-size: 16px;
@@ -111,7 +112,7 @@ input[type=submit]
 	/*margin-top:5%;*/
 	float:left;
 	display:inline-block;
-	overflow:auto;
+	overflow:hidden;
 	text-align:center;
 	border-right:1px solid #999999;
 	padding:5px;
@@ -133,6 +134,8 @@ input[type=submit]
 	border-right:1px solid #d8d8d8;
 	padding:10px;
 	background:#efefef;
+        font-size: 10px;
+        color: #333333;
 }
 .add_user_addedlist
 {
@@ -183,23 +186,24 @@ input[type=submit]
     display: inline-block;
     height: 45px;
     line-height: 40px;
-    
+    position:relative;
+    left:-27px;   
 }
 
 .left_section button
 {
-    width: 300px;
+    width: 250px;
     height: 45px;
-    margin: 5px;
+    margin: 5px 0 0 34px;
     background: #ccc;
     border-radius: 5px;
     border:none;
-    font-size: 14px;
     font-size: 14px;
     color:#333333;
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
+
 }
 .add_button
 {
@@ -210,7 +214,7 @@ input[type=submit]
     border-radius: 5px;
     border:none;
     font-size: 14px;
-    font-size: 14px;
+
     color:#333333;
     font-weight: 600;
     cursor: pointer;
@@ -224,16 +228,16 @@ input[type=submit]
 .mtitles{
     width: 310px; 
     height:34px;
-    font-size: 14px;
+    font-size: 12pt;
 }
 
 select
 {
-    width: 300px;
+    width: 250px;
     height: 45px;
     border: 1px solid #cccccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 12pt;
     color: #333;
     padding-left: 10px;
     background: #fcfcfc;
