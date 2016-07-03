@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Success</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/style.css" rel="stylesheet" media="screen">
+  </head>
+  <body style="background:#f8f8f8; margin:0; padding:0;">
+      <nav>
+        <h1 class="logo"><img src="static/res/logo_ad.png" width="250" height=""></h1>
+      </nav>
+    <div class="container" style="background:#f8f8f8; width:100%;">
+      <h2 class="success_msg">Login Successful !!</h2>
+      <br>
+
+      {% if success_string %}
+        <p class="success"><strong>Success:</strong> {{ success_string }}
+      {% endif %}
+    </div>
+  </body>
+</html>

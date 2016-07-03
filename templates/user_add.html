@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/style.css" rel="stylesheet" media="screen">
+  </head>
+  <body style="background:#f8f8f8; margin:0; padding:0;">
+      <nav>
+        <h1 class="logo"><img src="static/res/logo_ad.png" width="250" height=""></h1>
+      </nav>
+        
+        <div class="main">
+            <span class="left_section">
+                <h3>Add User Details</h3>
+      <br>
+      <form action="" method="post" style="text-align:right;">
+          <ul>
+              <li style="width: 130px;">Username</li>
+              <li><input type="text" placeholder="Username" name="username" value="{{request.form.username }}"></li>
+          </ul>
+          <ul>
+              <li style="width: 130px;">Password</li>
+              <li><input type="password" placeholder="Password" name="password" value="{{request.form.password }}"></li>
+          </ul>
+          <ul>
+              <li style="width: 130px;">User Group</li>
+              <li>
+                <select name="user_group">
+                  <option>Employee</option>
+                  <option>Guest</option>
+                </select>
+
+                <!--<input type="text" placeholder="Guest/Employee"  value="{{request.form.user_group }}"></li-->
+          </ul>
+          <ul>
+              <li style="width: 130px;">Evict Time</li>
+              <li><input type="text" placeholder="in secs" name="evict_time" value="{{request.form.evict_time }}"></li>
+          </ul>
+        
+        
+<!--           <input type="text" placeholder="id" name="id" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}"> --><br>
+        <input class="btn btn-default" type="submit" value="Add User">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </h3>
+      <!--p>Click <a href="/server_add">here</a> to add server details.</p>
+      <p>Click <a href="/user_delete">here</a> to manage users.</p-->
+            <h5><button onClick="window.location='/server_add'">Add server details</button></h5>
+            <h5><button onClick="window.location='/user_delete'">Manage Users</button></h5>
+            </span>
+            <span class="right_section">
+                <table border="0"  cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #d8d8d8;">
+         <thead>
+            <tr>
+               <th class="add_user_list">Name</th>
+               <th class="add_user_list">Password</th>
+               <th class="add_user_list">User Group</th>
+               <th class="add_user_list">Evict time</th>
+               <th class="add_user_list">OS Type</th>
+               <th class="add_user_list">IP Address</th>
+               <th class="add_user_list">Status</th>
+<!--                <th>Pin</th> -->
+            </tr>
+         </thead>
+      <tbody>
+            {% for item in items %}
+            <tr>
+            {% for i in item %}
+                  <td class="add_user_addedlist">{{ i }}</td>
+
+            {% endfor %}
+          </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+            </span>
+      
+
+
+      
+        </div>
+  </body>
+</html>
