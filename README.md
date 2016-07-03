@@ -1,9 +1,9 @@
 ## Solution Notes
 Project: Dynamic Access Provisioning
 Team :
- Pramod Shanbhag
- Abhilash R
- Harish Reddy V.
+ Pramod Shanbhag,
+ Abhilash R, 
+ Harish Reddy V,
  Madhusudhan S.
 
 ## Problem Statement 
