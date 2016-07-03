@@ -51,10 +51,16 @@ _ipaddr_port=port_no
 #Running Authentication Server
 - Clone the repo.
 - Run createDB.py inside db directory. 
+
 cd db
+
 python db/createDB.py
+
 cd ..
+
 - Run app.py 
+
 sudo python app.py
+
 - In browser http://127.0.0.1/admin_login takes you admin dashboard to add users and server details.
 - User can login from http://127.0.0.1 using login credentials.
